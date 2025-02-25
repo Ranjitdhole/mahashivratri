@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>महाशिवरात्रि की शुभकामनाएँ</title>
+    <meta name="description" content="महाशिवरात्रि की शुभकामनाएँ! भगवान शिव की कृपा से आपके जीवन में सुख, समृद्धि और शांति बनी रहे।">
+    <meta name="keywords" content="महाशिवरात्रि, भगवान शिव, शिवरात्रि शुभकामनाएँ, हर हर महादेव">
+    <meta name="author" content="Shiva Bhakt">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Hind&display=swap');
         body {
@@ -18,14 +21,15 @@
             align-items: center;
             height: 100vh;
             flex-direction: column;
-            cursor: url('https://upload.wikimedia.org/wikipedia/commons/2/29/Trishul.png'), auto;
+            cursor: url('https://i.imgur.com/y6z3HhA.png'), auto; /* 32x32 Trishul Cursor */
         }
         .container {
             background: rgba(255, 255, 255, 0.1);
             padding: 40px;
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-            max-width: 700px;
+            max-width: 90%;
+            width: 700px;
         }
         h1 {
             font-size: 50px;
@@ -51,7 +55,8 @@
             margin: 20px 0;
         }
         .mahadev-img {
-            width: 300px;
+            width: 100%;
+            max-width: 300px;
             height: auto;
             margin-bottom: 10px;
             border-radius: 15px;
@@ -83,10 +88,17 @@
         audio {
             display: none;
         }
+        #shiv-message {
+            font-size: 30px;
+            color: #ffcc00;
+            text-shadow: 3px 3px 10px rgba(255, 204, 0, 0.8);
+            margin-top: 20px;
+            display: none;
+        }
     </style>
 </head>
 <body>
-    <audio autoplay loop>
+    <audio autoplay loop controls hidden>
         <source src="shiv_bhajan.mp3" type="audio/mp3">
         आपका ब्राउज़र ऑडियो टैग का समर्थन नहीं करता।
     </audio>
@@ -99,7 +111,14 @@
             <img src="mahadev.jpg" alt="भगवान महादेव" class="mahadev-img">
             <img src="shiv.jpg" alt="शिवलिंग" class="mahadev-img">
         </div>
-        <button class="btn" onclick="alert('हर हर महादेव! भगवान शिव की कृपा सदा बनी रहे!')">जय भोलेनाथ</button>
+        <button class="btn" onclick="showMessage()">जय भोलेनाथ</button>
+        <div id="shiv-message">हर हर महादेव! भगवान शिव की कृपा सदा बनी रहे! 🔱</div>
     </div>
+
+    <script>
+        function showMessage() {
+            document.getElementById('shiv-message').style.display = 'block';
+        }
+    </script>
 </body>
 </html>
