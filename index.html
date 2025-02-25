@@ -18,7 +18,7 @@
             align-items: center;
             height: 100vh;
             flex-direction: column;
-            cursor: url('https://upload.wikimedia.org/wikipedia/commons/2/29/Trishul.png'), auto;
+            cursor: url('https://upload.wikimedia.org/wikipedia/commons/2/29/Trishul.png') 16 16, auto;
         }
         .container {
             background: rgba(255, 255, 255, 0.1);
@@ -51,7 +51,8 @@
             margin: 20px 0;
         }
         .mahadev-img {
-            width: 300px;
+            width: 100%;
+            max-width: 300px;
             height: auto;
             margin-bottom: 10px;
             border-radius: 15px;
@@ -80,16 +81,22 @@
             background: #ff6600;
             color: #fff;
         }
-        audio {
-            display: none;
+        .audio-btn {
+            background: none;
+            border: none;
+            font-size: 18px;
+            color: #ffcc00;
+            cursor: pointer;
+            margin-top: 15px;
+            text-decoration: underline;
+        }
+        .audio-btn:hover {
+            color: #ff6600;
         }
     </style>
 </head>
 <body>
-    <audio autoplay loop>
-        <source src="shiv_bhajan.mp3" type="audio/mp3">
-        आपका ब्राउज़र ऑडियो टैग का समर्थन नहीं करता।
-    </audio>
+
     <div class="container">
         <h1>🔱 महाशिवरात्रि की शुभकामनाएँ 🔱</h1>
         <p>महाशिवरात्रि भगवान शिव और माता पार्वती के पावन मिलन का पर्व है। यह दिन भक्ति, उपवास, और ध्यान के लिए समर्पित है।</p>
@@ -99,7 +106,28 @@
             <img src="mahadev.jpg" alt="भगवान महादेव" class="mahadev-img">
             <img src="shiv.jpg" alt="शिवलिंग" class="mahadev-img">
         </div>
-        <button class="btn" onclick="alert('हर हर महादेव! भगवान शिव की कृपा सदा बनी रहे!')">जय भोलेनाथ</button>
+        <button class="btn" onclick="shivBlessing()">जय भोलेनाथ</button>
+        <button class="audio-btn" onclick="toggleAudio()">🔊 शिव भजन सुनें</button>
+        <audio id="shivAudio">
+            <source src="shiv_bhajan.mp3" type="audio/mp3">
+            आपका ब्राउज़र ऑडियो टैग का समर्थन नहीं करता।
+        </audio>
     </div>
+
+    <script>
+        function shivBlessing() {
+            alert('हर हर महादेव! भगवान शिव की कृपा सदा बनी रहे!');
+        }
+
+        function toggleAudio() {
+            var audio = document.getElementById("shivAudio");
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        }
+    </script>
+
 </body>
 </html>
