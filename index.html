@@ -9,115 +9,160 @@
     <meta name="author" content="Shiva Bhakt">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Hind&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Hind', sans-serif;
             text-align: center;
             background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
             color: #fff;
-            margin: 0;
-            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             flex-direction: column;
-            cursor: url('https://i.imgur.com/y6z3HhA.png'), auto; /* 32x32 Trishul Cursor */
+            padding: 10px;
         }
+
         .container {
             background: rgba(255, 255, 255, 0.1);
-            padding: 40px;
+            padding: 30px;
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-            max-width: 90%;
-            width: 700px;
+            width: 90%;
+            max-width: 500px;
         }
+
         h1 {
-            font-size: 50px;
+            font-size: 36px;
             color: #ffcc00;
-            text-shadow: 3px 3px 15px rgba(255, 165, 0, 0.9);
+            text-shadow: 2px 2px 10px rgba(255, 165, 0, 0.9);
         }
+
         p {
-            font-size: 22px;
-            line-height: 1.8;
-            margin: 20px 0;
+            font-size: 18px;
+            line-height: 1.6;
+            margin: 15px 0;
         }
+
         .om {
-            font-size: 100px;
+            font-size: 80px;
             color: #ffcc00;
             animation: glow 1.5s infinite alternate;
-            margin: 25px 0;
+            margin: 20px 0;
         }
+
         .mahadev-container {
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            margin: 20px 0;
+            gap: 10px;
+            margin: 15px 0;
         }
+
         .mahadev-img {
             width: 100%;
-            max-width: 300px;
+            max-width: 250px;
             height: auto;
-            margin-bottom: 10px;
             border-radius: 15px;
             box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
         }
+
         @keyframes glow {
             from {
                 text-shadow: 0 0 15px #ffcc00;
             }
             to {
-                text-shadow: 0 0 40px #ff6600;
+                text-shadow: 0 0 30px #ff6600;
             }
         }
+
         .btn {
             background: #ffcc00;
             color: #000;
-            padding: 15px 30px;
-            font-size: 20px;
+            padding: 12px 20px;
+            font-size: 18px;
             font-weight: bold;
             border: none;
-            border-radius: 8px;
+            border-radius: 6px;
             cursor: pointer;
             transition: 0.3s;
+            width: 100%;
+            max-width: 250px;
+            margin: 10px 0;
         }
+
         .btn:hover {
             background: #ff6600;
             color: #fff;
         }
-        audio {
+
+        #shiv-message {
+            font-size: 22px;
+            color: #ffcc00;
+            text-shadow: 2px 2px 8px rgba(255, 204, 0, 0.8);
+            margin-top: 15px;
             display: none;
         }
-        #shiv-message {
-            font-size: 30px;
-            color: #ffcc00;
-            text-shadow: 3px 3px 10px rgba(255, 204, 0, 0.8);
-            margin-top: 20px;
-            display: none;
+
+        /* 🎯 Mobile View Optimization */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 28px;
+            }
+            p {
+                font-size: 16px;
+            }
+            .om {
+                font-size: 60px;
+            }
+            .btn {
+                font-size: 16px;
+                padding: 10px 15px;
+            }
         }
     </style>
 </head>
 <body>
-    <audio autoplay loop controls hidden>
+    <audio id="shivAudio" loop>
         <source src="shiv_bhajan.mp3" type="audio/mp3">
         आपका ब्राउज़र ऑडियो टैग का समर्थन नहीं करता।
     </audio>
+    
     <div class="container">
         <h1>🔱 महाशिवरात्रि की शुभकामनाएँ 🔱</h1>
         <p>महाशिवरात्रि भगवान शिव और माता पार्वती के पावन मिलन का पर्व है। यह दिन भक्ति, उपवास, और ध्यान के लिए समर्पित है।</p>
         <p>भगवान शिव की कृपा से आपके जीवन में सुख, समृद्धि और शांति बनी रहे!</p>
         <div class="om">ॐ</div>
+
         <div class="mahadev-container">
             <img src="mahadev.jpg" alt="भगवान महादेव" class="mahadev-img">
             <img src="shiv.jpg" alt="शिवलिंग" class="mahadev-img">
         </div>
+
         <button class="btn" onclick="showMessage()">जय भोलेनाथ</button>
+        <button class="btn" onclick="toggleMusic()">🎵 संगीत चालू/बंद</button>
         <div id="shiv-message">हर हर महादेव! भगवान शिव की कृपा सदा बनी रहे! 🔱</div>
     </div>
 
     <script>
         function showMessage() {
             document.getElementById('shiv-message').style.display = 'block';
+        }
+
+        function toggleMusic() {
+            var audio = document.getElementById("shivAudio");
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
         }
     </script>
 </body>
