@@ -1,10 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>महाशिवरात्रि की शुभकामनाएँ</title>
-    <meta name="description" content="महाशिवरात्रि की शुभकामनाएँ! भगवान शिव की कृपा से आपके जीवन में सुख, समृद्धि और शांति बनी रहे।">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Hind&display=swap');
         body {
@@ -19,7 +19,7 @@
             align-items: center;
             height: 100vh;
             flex-direction: column;
-            transition: background 0.5s, color 0.5s;
+            cursor: url('https://upload.wikimedia.org/wikipedia/commons/2/29/Trishul.png') 16 16, auto;
         }
         .container {
             background: rgba(255, 255, 255, 0.1);
@@ -42,19 +42,32 @@
             font-size: 100px;
             color: #ffcc00;
             animation: glow 1.5s infinite alternate;
+            margin: 25px 0;
+        }
+        .mahadev-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: 20px 0;
         }
         .mahadev-img {
             width: 100%;
-            max-width: 250px;
+            max-width: 300px;
             height: auto;
+            margin-bottom: 10px;
             border-radius: 15px;
             box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
         }
         @keyframes glow {
-            from { text-shadow: 0 0 15px #ffcc00; }
-            to { text-shadow: 0 0 40px #ff6600; }
+            from {
+                text-shadow: 0 0 15px #ffcc00;
+            }
+            to {
+                text-shadow: 0 0 40px #ff6600;
+            }
         }
-        .btn, .toggle-mode {
+        .btn {
             background: #ffcc00;
             color: #000;
             padding: 15px 30px;
@@ -64,9 +77,8 @@
             border-radius: 8px;
             cursor: pointer;
             transition: 0.3s;
-            margin: 10px;
         }
-        .btn:hover, .toggle-mode:hover {
+        .btn:hover {
             background: #ff6600;
             color: #fff;
         }
@@ -76,27 +88,28 @@
             font-size: 18px;
             color: #ffcc00;
             cursor: pointer;
+            margin-top: 15px;
             text-decoration: underline;
         }
         .audio-btn:hover {
             color: #ff6600;
         }
-        .dark-mode {
-            background: linear-gradient(to right, #000000, #434343);
-            color: #fff;
-        }
     </style>
 </head>
 <body>
+
     <div class="container">
+        
         <p>महाशिवरात्रि भगवान शिव और माता पार्वती के पावन मिलन का पर्व है। यह दिन भक्ति, उपवास, और ध्यान के लिए समर्पित है।</p>
         <p>भगवान शिव की कृपा से आपके जीवन में सुख, समृद्धि और शांति बनी रहे!</p>
         <h1>🔱 महाशिवरात्रि की शुभकामनाएँ 🔱</h1>
         <div class="om">ॐ</div>
-        <img src="mahadev.jpg" alt="भगवान महादेव" class="mahadev-img">
+        <div class="mahadev-container">
+            <img src="mahadev.jpg" alt="भगवान महादेव" class="mahadev-img">
+            <img src="shiv.jpg" alt="शिवलिंग" class="mahadev-img">
+        </div>
         <button class="btn" onclick="shivBlessing()">जय भोलेनाथ</button>
         <button class="audio-btn" onclick="toggleAudio()">🔊 शिव भजन सुनें</button>
-        <button class="toggle-mode" onclick="toggleMode()">🌙 मोड बदलें</button>
         <audio id="shivAudio">
             <source src="shiv_bhajan.mp3" type="audio/mp3">
             आपका ब्राउज़र ऑडियो टैग का समर्थन नहीं करता।
@@ -107,6 +120,7 @@
         function shivBlessing() {
             alert('हर हर महादेव! भगवान शिव की कृपा सदा बनी रहे!');
         }
+
         function toggleAudio() {
             var audio = document.getElementById("shivAudio");
             if (audio.paused) {
@@ -115,9 +129,7 @@
                 audio.pause();
             }
         }
-        function toggleMode() {
-            document.body.classList.toggle("dark-mode");
-        }
     </script>
+
 </body>
 </html>
